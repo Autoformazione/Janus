@@ -1,4 +1,4 @@
-# SNEKBRK
+# Janus
 
 Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti invasivi su siti come Corriere.it, Repubblica.it e altri portali.
 
