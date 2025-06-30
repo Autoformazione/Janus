@@ -1,0 +1,25 @@
+{
+  "name": "JANUS",
+  "version": "1.1",
+  "manifest_version": 3,
+  "description": "Estensione con 3 modalit\u00e0: OFF, Parziale e Totale. Badge contatore, popup cliccabile e stato persistente.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": "icons/icon_off.png",
+    "default_title": "OFF",
+    "default_popup": "popup.html"
+  },
+  "declarative_net_request": {
+    "rule_resources": []
+  }
+}
