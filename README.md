@@ -38,12 +38,6 @@ Questa estensione:
 
 ---
 
-## Licenza
-
-MIT License — sentiti libero di usare, modificare o distribuire.
-
----
-
 ## Supporto
 
 Apri una [Issue](https://github.com/Autoformazione/Janus/issues) su GitHub per problemi o suggerimenti.
