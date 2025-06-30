@@ -1,4 +1,8 @@
-# Janus
+# Janus <h1>
+  <img src="icons/janus_1.png" alt="Janus Logo" width="40" style="vertical-align: middle; margin-right: 10px;">
+  Janus
+</h1>
+
 
 Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti invasivi su siti come Corriere.it, Repubblica.it e altri portali.
 
