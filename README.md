@@ -19,8 +19,7 @@ Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti in
    - Estrai la cartella `Janus-main/`
 
 2. Vai su Chrome: chrome://extensions/
-3. Attiva:
-- Modalità sviluppatore (in alto a destra)
+3. Attiva Modalità sviluppatore (in alto a destra)
 
 4. Clicca su:
 - **“Carica estensione non pacchettizzata”**
