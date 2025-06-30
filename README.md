@@ -24,7 +24,7 @@ Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti in
 
 4. Clicca su:
 - **“Carica estensione non pacchettizzata”**
-- Seleziona la cartella `antitracker-advanced/`
+- Seleziona la cartella `Janus-main/`
 
 ✅ Fatto! L’icona comparirà in alto a destra.
 
