@@ -54,5 +54,5 @@ MIT License — sentiti libero di usare, modificare o distribuire.
 
 ## Supporto
 
-Apri una [Issue](https://github.com/tuo-utente/nome-repo/issues) su GitHub per problemi o suggerimenti.
+Apri una [Issue](https://github.com/Autoformazione/Janus/issues) su GitHub per problemi o suggerimenti.
 
