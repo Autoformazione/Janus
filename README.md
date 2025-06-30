@@ -12,7 +12,7 @@ Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti in
 - **Popup interattivo** per cambiare modalità al volo
 - **Stato persistente** salvato per ogni sito (anche al riavvio del browser)
 
-## Come installare (solo installazione manuale)
+## Come installare 
 
 1. Scarica il codice:
    - Clicca su **Code → Download ZIP**
