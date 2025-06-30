@@ -28,7 +28,7 @@ Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti in
 ✅ Fatto! L’icona comparirà in alto a destra.
 
 
-## ⚙️ Tecnologie usate
+## Tecnologie usate
 
 - Manifest V3
 - JavaScript (background, popup)
