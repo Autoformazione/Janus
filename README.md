@@ -6,6 +6,29 @@
 
 Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti invasivi su siti come Corriere.it, Repubblica.it e altri portali.
 
+## Changelog - Versione 1.2
+
+Data rilascio: [02 luglio 2025]
+
+### Novità introdotte
+
+- **Introdotta whitelist per domini noti**: in modalità "parziale", alcuni domini (YouTube, Google News, ecc.) sono ora esclusi dai blocchi più aggressivi per garantire la corretta fruizione dei contenuti.
+
+- **Gestione più intelligente delle modalità**:
+  - In modalità `partial`, gli script **non vengono bloccati**, mentre altre risorse (XHR, media, websocket…) sì.
+  - In modalità `full`, viene attivato un blocco **completo**, inclusi gli script.
+
+- **Aggiunta logica di esclusione (`excludedDomains`)** per personalizzare il comportamento a seconda dei siti.
+
+
+---
+
+### Considerazioni
+
+Questa versione migliora l’equilibrio tra privacy e usabilità, evitando blocchi su siti affidabili e popolari durante la normale navigazione informativa.
+
+
+
 ## Funzionalità principali
 
 - **Blocco cookie wall e tracciatori** su siti notoriamente invadenti
