@@ -6,7 +6,7 @@
 
 Semplice estensione Chrome per bloccare cookie wall, tracciamenti e contenuti invasivi su siti come Corriere.it, Repubblica.it e altri portali.
 
-## Changelog - Versione 1.2
+## Janus - Versione 1.2
 
 Data rilascio: [02 luglio 2025]
 
