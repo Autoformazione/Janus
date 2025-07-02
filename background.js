@@ -4,6 +4,30 @@ const MODE_FULL = "full";
 
 let currentMode = MODE_OFF;
 
+// Lista whitelist domini (aggregatori e siti di notizie)
+const whitelist = [
+  "youtube.com",
+  "news.google.com",
+  "dailymotion.com",
+  "rai.it",
+  "rainews.it",
+  "video.repubblica.it",
+  "ilpost.it",
+  "ansa.it",
+  "fanpage.it",
+  "skytg24.it",
+  "tgcom24.mediaset.it",
+  "euronews.com",
+  "open.online",
+  "ilmeteo.it",
+  "meteo.it",
+  "ilfattoquotidiano.it",
+  "agi.it",
+  "adnkronos.com",
+  "notizie.tiscali.it",
+  "lapresse.it"
+];
+
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.get(["defaultMode"], (result) => {
     const defaultMode = result.defaultMode || MODE_OFF;
@@ -30,30 +54,46 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 function setMode(mode) {
   currentMode = mode;
-  updateBadge();
 
   let rulesToAdd = [];
-  if (mode === MODE_PARTIAL || mode === MODE_FULL) {
-    const blockedTypes = [
-      ...(mode === MODE_PARTIAL ? [] : ["script"]),
-      "xmlhttprequest",
-      "ping",
-      "media",
-      "websocket",
-      "other"
-    ];
-    rulesToAdd = [
-      {
-        id: 1,
-        priority: 1,
-        action: { type: "block" },
-        condition: { resourceTypes: blockedTypes }
+
+  if (mode === MODE_FULL) {
+    // Modalità TOTALE: blocco completo, nessuna whitelist
+    rulesToAdd.push({
+      id: 1,
+      priority: 1,
+      action: { type: "block" },
+      condition: {
+        resourceTypes: ["script", "xmlhttprequest", "sub_frame", "ping", "media", "websocket", "other"]
       }
-    ];
+    });
+  } else if (mode === MODE_PARTIAL) {
+    // Modalità PARZIALE: blocco selettivo, con whitelist, senza bloccare script
+    rulesToAdd.push({
+      id: 1,
+      priority: 1,
+      action: { type: "block" },
+      condition: {
+        resourceTypes: ["xmlhttprequest", "sub_frame", "ping", "media", "websocket", "other"],
+        excludedDomains: whitelist
+      }
+    });
+
+    // Regola speciale Google News (esempio: blocco risorse non script)
+    rulesToAdd.push({
+      id: 1001,
+      priority: 1,
+      action: { type: "block" },
+      condition: {
+        urlFilter: "||news.google.com^",
+        resourceTypes: ["ping", "websocket", "media", "other"],
+        excludedDomains: whitelist
+      }
+    });
   }
 
   chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1],
+    removeRuleIds: [1, 1001],
     addRules: rulesToAdd
   });
 
@@ -66,23 +106,18 @@ function updateIcon(mode) {
     [MODE_PARTIAL]: "icons/icon_partial.png",
     [MODE_FULL]: "icons/icon_full.png"
   };
-  const titleMap = {
-    [MODE_OFF]: "OFF",
-    [MODE_PARTIAL]: "Parziale",
-    [MODE_FULL]: "Totale"
-  };
   chrome.action.setIcon({ path: iconMap[mode] });
-  chrome.action.setTitle({ title: titleMap[mode] });
+  chrome.action.setTitle({
+    title:
+      mode === MODE_OFF
+        ? "OFF"
+        : mode === MODE_PARTIAL
+        ? "Parziale"
+        : "Totale"
+  });
 }
 
 function updateBadge() {
-  const textMap = {
-    [MODE_OFF]: "",
-    [MODE_PARTIAL]: "P",
-    [MODE_FULL]: "T"
-  };
-  chrome.action.setBadgeText({ text: textMap[currentMode] });
-  chrome.action.setBadgeBackgroundColor({
-    color: currentMode === MODE_FULL ? "#ff0000" : currentMode === MODE_PARTIAL ? "#ffa500" : "#000000"
-  });
+  // Nessun badge, come richiesto
+  chrome.action.setBadgeText({ text: "" });
 }

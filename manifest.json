@@ -1,6 +1,6 @@
 {
   "name": "JANUS",
-  "version": "1.1",
+  "version": "1.2",
   "manifest_version": 3,
   "description": "Estensione con 3 modalit\u00e0: OFF, Parziale e Totale. Badge contatore, popup cliccabile e stato persistente.",
   "permissions": [
