@@ -5,8 +5,8 @@
 
 
 Semplice estensione per bloccare cookie wall, tracciamenti e contenuti invasivi su siti come Corriere.it, Repubblica.it e altri portali.
-Attualmente compatibile solo con browser basati su Chromium (es. Chrome, Edge, Brave, Opera, ecc.).
-Non compatibile con Mozilla Firefox.
+**Attualmente compatibile solo con browser basati su Chromium (es. Chrome, Edge, Brave, Opera, ecc.).**
+**Non compatibile con Mozilla Firefox.**
 
 ## Janus - Versione 1.2
 
